@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -8,17 +9,6 @@ export default function Home() {
 
   const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-  const numeroAleatorioEnRango = (min: number, max: number): number => {
-    // Genera un número aleatorio entre 0 (inclusive) y 1 (exclusivo)
-    const numeroAleatorio = Math.random();
-
-    // Ajusta el número aleatorio al rango deseado
-    const numeroEnRango = numeroAleatorio * (max - min) + min;
-
-    // Redondea el resultado si es necesario (puedes quitar esta línea si deseas números decimales)
-    return Math.round(numeroEnRango);
-  };
-
   const drawFlower = async () => {
     if (canvasRef.current) {
       const canvas = canvasRef.current;
@@ -28,7 +18,7 @@ export default function Home() {
 
         ctx.lineWidth = grosorLinea; // Establecer el grosor de la línea
 
-        // Primera linea
+        // fondo
         ctx.fillStyle = "#99C9E6";
 
         for (let x = 0; x < 400; x = x + 10) {
@@ -37,6 +27,8 @@ export default function Home() {
             ctx.fillRect(x, y, 10, 10);
           }
         }
+
+        // Flor
         {
           ctx.fillStyle = "RGB(196, 150, 0)";
           ctx.fillRect(190, 110, 10, 10);
